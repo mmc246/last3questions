@@ -1,0 +1,56 @@
+# question 23
+def smallest_i(required_value):
+    """something"""
+    num1 = 1
+    other = 0
+    while num1 <= required_value:
+        num1 = (num1 * 27) + 10
+        other += 1
+    if other == 1:
+        return other
+    else:
+        other += 1
+        return other
+
+# question 24
+def factorial(n):
+    """finds the factorial"""
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)   
+def smallest_factorial(target):
+    """finds the smallest number whos factorial is greater than the target"""
+    amount = 0
+    fact = 0
+    while amount < target:
+        fact += 1
+        amount = factorial(fact)
+    return fact
+    
+# question 26
+def num_halvings(num_sheets_of_paper):
+    """Return the number of times the given number of sheets of paper
+       can be halved before the result becomes zero. For example, if n == 12
+       the sequence of halvings would be 12, 6, 3, 1, 0 and the function
+       would return 4, since the 4th halving yielded zero.
+    """
+    n = num_sheets_of_paper
+    halvings = 0 # Counter of the number of halvings
+    while n > 0:
+        halvings += 1
+        n = int(n / 2)
+    return halvings
+    
+# question 27
+def read_number(lower_bound, upper_bound):
+    """integer between some stuff"""
+    correct = False
+    while correct == False:
+        answer = int(input(f"Enter an integer between {lower_bound} and {upper_bound}: "))
+        if (lower_bound <= answer <= upper_bound):
+            correct = True
+        else:
+            print("Number out of range. Try again.")
+            continue
+    return answer
