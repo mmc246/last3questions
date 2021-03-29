@@ -1,3 +1,52 @@
+# Question 2
+"""This program works out the speed at which a person walked given how far they
+   walked in feet and how long it took them in hours.
+"""
+HOUR_IN_SECS = 3600
+M_IN_FOOT = 0.3048
+KM_CONVERSION = 3.6
+def main():
+    """Given a distance and feet and time in hours. Calculates speed in m/s and km/h"""
+    distance_feet = float(input("Enter the distance traveled in feet: "))
+    time_hours = float(input("Enter the time taken in hours: "))
+    
+    time_seconds = time_hours * HOUR_IN_SECS  # There are 3600 second in an hour
+    distance_meters = M_IN_FOOT * distance_feet  # There are 0.3048 m in a foot
+    
+    speed_mps = distance_meters/time_seconds
+    print(f"Your average speed is: {speed_mps:.4f} m/s")
+    speed_kph = KM_CONVERSION * speed_mps
+    print(f"Which is: {speed_kph:.4f} km/h")
+    
+main()
+
+# Question 3
+import statistics
+
+def print_standard_deviation(numbers):
+    """Print the standard deviation of the given list of numbers"""
+    standard_dev = statistics.stdev(numbers)
+    print(f"Standard deviation is {standard_dev:.2f}")
+
+# Question 4
+radians
+dergrees
+sqrt
+
+# Question 5
+After importing
+If module m
+abs, len, round
+
+# Question 6
+There is no function math.pi()
+
+# Question 7
+cost
+cost
+cost
+all of the variables
+
 # Question 8
 """does stuff"""
 
