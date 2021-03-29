@@ -1,0 +1,350 @@
+# Question 8
+"""does stuff"""
+
+def fun_function(n_items, cost_per_item, discount_percent, discount_threshold):
+    """fun as ay"""
+    cost = n_items * cost_per_item                  # line 1
+    if n_items > discount_threshold:                # line 2
+        cost = cost * (1 - discount_percent / 100)
+    return cost
+
+
+def main():
+    """main"""
+    cost_per_item = 27      # Without discount
+    discount_percent = 10
+    discount_threshold = 20
+    n_items = int(input("Count of items? "))
+    cost = fun_function(n_items, cost_per_item, discount_percent, discount_threshold)
+    print(f"{n_items} items cost ${cost:.2f}")
+    
+main()
+
+#Question 9
+cost_of_items
+
+# Question 10
+return quotient, remainder
+
+#Question 11
+"""Program to read and process a list of names 
+   and marks. See lecture notes and/or video for
+   an explanation of how this program was obtained.
+"""
+
+def get_marks():
+    """Read a list of names and marks from standard input. Return
+       the names and marks in parallel lists.
+    """
+    names = []
+    marks = []
+    name = input('Enter name: ')
+    while name != '':
+        names.append(name)
+        mark_string = input(f'Mark for {name}? ')
+        marks.append(float(mark_string))
+        name = input('Enter name: ')
+    return names, marks
+
+
+def grading(mark):
+    """Return the grade for the given mark"""
+    if mark >= 80:
+        grade = 'A'
+    elif mark >= 65:
+        grade = 'B'
+    elif mark >= 50:
+        grade = 'C'
+    else:
+        grade = 'F'
+    return grade
+
+
+def gradings(marks):
+    """returns list of corresponding grade"""
+    grades = []
+    for i in range(len(marks)):
+        mark = marks[i]
+        grade = grading(mark)
+        grades.append(grade)
+    return grades
+
+def print_results(names, marks, grades):
+    """Print all the students names, marks and grades together
+       with a summary showing the average and the results for
+       the top student.
+    """
+    num_students = len(names)
+    print()
+    print("Name       Mark  Grade")
+    for i in range(num_students):
+        print(f"{names[i]:<10}{marks[i]:>5.1f}{grades[i]:>5}")
+        
+    # Print average and best student
+    print()
+    average = sum(marks) / num_students
+    print(f"Average: {average: .1f}")
+    best_index = marks.index(max(marks))
+    print(f"Top student: {names[best_index]} ({marks[best_index]})")
+
+
+def main():
+    """Do the whole job"""
+    names, marks = get_marks()
+    grades = gradings(marks)
+    print_results(names, marks, grades)
+    
+main()
+
+# Question 12
+
+"""Print all the perfect squares from 2 up to a given maximum.
+   This version is refactored to make it more understandable
+   and more maintainable."""
+
+def read_bound():
+    """Reads the upper bound from the standard input (keyboard).
+       If the user enters something that is not a positive integer
+       the function issues an error message and retries
+       repeatedly - as per the original code."""
+    
+    upper_bound = None
+    while upper_bound is None:
+        line = input("Enter the upper bound: ")
+        if line.isnumeric():
+            upper_bound = int(line)
+        else:
+            print("You must enter a positive number.")
+    return upper_bound
+
+
+
+def is_perfect_square(number):
+    """Returns True if and only if number is a perfect square, 
+    otherwise returns False.
+    """
+    for candidate in range(1, number):
+        if candidate * candidate == number:
+            return True
+
+
+
+def print_squares(upper_bound, squares):
+    """Print the given list of all the squares up to the given upper bound.
+    The printout should be in the same format as the original code. """
+    
+    print(f"The perfect squares up to {upper_bound} are:")
+    for square in squares:
+        print(square, end=' ')
+    print()
+
+    
+
+def main():
+    """Every home should have one"""
+    upper_bound = read_bound()
+    squares = []
+    for num in range(2, upper_bound + 1):
+        if is_perfect_square(num):
+            squares.append(num)
+    
+    print_squares(upper_bound, squares)
+
+
+main()
+
+# Question 13
+"""Print all the perfect squares from 2 up to a given maximum.
+   This version is refactored to make it more understandable
+   and more maintainable."""
+import math
+def read_bound():
+    """Reads the upper bound from the standard input (keyboard).
+       If the user enters something that is not a positive integer
+       the function issues an error message and retries
+       repeatedly - as per the original code."""
+    
+    upper_bound = None
+    while upper_bound is None:
+        line = input("Enter the upper bound: ")
+        if line.isnumeric():
+            upper_bound = int(line)
+        else:
+            print("You must enter a positive number.")
+    return upper_bound
+
+
+
+def is_perfect_square(number):
+    """Returns True if and only if number is a perfect square, 
+    otherwise returns False.
+    """
+    number = math.sqrt(number)
+    if round(number) == number:
+        return True
+
+
+def print_squares(upper_bound, squares):
+    """Print the given list of all the squares up to the given upper bound.
+    The printout should be in the same format as the original code. """
+    
+    print(f"The perfect squares up to {upper_bound} are:")
+    for square in squares:
+        print(square, end=' ')
+    print()
+
+    
+
+def main():
+    """Every home should have one"""
+    upper_bound = read_bound()
+    squares = []
+    for num in range(2, upper_bound + 1):
+        if is_perfect_square(num):
+            squares.append(num)
+    
+    print_squares(upper_bound, squares)
+
+
+main()
+
+# question 14
+"""Print all the perfect squares from 2 up to a given maximum.
+   This version is refactored to make it more understandable
+   and more maintainable."""
+import math
+def read_bound(question):
+    """Reads the upper bound from the standard input (keyboard).
+       If the user enters something that is not a positive integer
+       the function issues an error message and retries
+       repeatedly - as per the original code."""
+    correct_entry = False
+    while correct_entry == False:
+        bound = input(question)
+        if bound.isnumeric():
+            bound = int(bound)
+            correct_entry = True
+        else:
+            print("You must enter a positive number.")
+    return bound
+
+
+
+def is_perfect_square(number):
+    """Returns True if and only if number is a perfect square, 
+    otherwise returns False.
+    """
+    number = math.sqrt(number)
+    if round(number) == number:
+        return True
+
+
+def print_squares(lower_bound, upper_bound, squares):
+    """Print the given list of all the squares up to the given upper bound.
+    The printout should be in the same format as the original code. """
+    
+    print(f"The perfect squares from {lower_bound} to {upper_bound} are:")
+    for square in squares:
+        print(square, end=' ')
+    print()
+
+    
+
+def main():
+    """Every home should have one"""
+    lower_bound = read_bound("Enter the lower bound: ")
+    upper_bound = read_bound("Enter the upper bound: ")
+    squares = []
+    for num in range(lower_bound, upper_bound + 1):
+        if is_perfect_square(num):
+            squares.append(num)
+
+    print_squares(lower_bound, upper_bound, squares)
+
+
+main()
+
+# Question 15
+
+"""Read a file of student marks and display some statistics.
+   Written for COSC131.
+   Author: Angus McGurkinshaw
+   Date: 18 March 2021.
+"""
+from os.path import isfile
+
+def get_filename():
+    """Ask the user for a filename and check if it is valid using the isfile
+       function imported from os.path (above). 
+       If not, continue asking until a valid filename is given.
+       Returns: the name of the student data file to be processed.
+       NOTE: make sure you only ever pass a string argument to isfile; if
+       you pass an int or bool, confusing things may happen.
+       For example isfile(0) doesn't really make sense here, 
+       neither does isfile(False)
+       but isfile('') is ok
+    """
+    prompt = "Input csv file name? "
+    error_message = "File does not exist."
+    answer = False
+    while answer == False:
+        filename = input(prompt)
+        if isfile(filename) == True:
+            return filename
+        else:
+            print(error_message)
+
+def read_data(filename):
+    """Parameters: the name of the file to be read (string)
+       The file is assumed to exist, or an exception will occur.
+       It is also assumed that each line of the file consists of a
+       student name, a comma, and a floating-point mark.
+       Returns: a list of marks, where each mark is a floating-point number.
+    """
+    in_file = open(filename)
+    lines = in_file.read().splitlines()
+    in_file.close()
+    data = []
+    for line in lines:
+        pieces = line.split(',')
+        mark = float(pieces.pop())
+        data.append(mark)
+    return data
+
+
+def statistics(marks):
+    """Parameters: a list of marks, where each mark is a floating-point number.
+       Returns: The following statistics extracted from the list of marks:
+       - minimum_mark (float)
+       - maximum_mark (float)
+       - average_mark (float)
+    """
+    minimum_mark = min(marks)
+    maximum_mark = max(marks)
+    average_mark = sum(marks) / len(marks)
+    return minimum_mark, maximum_mark, average_mark
+
+
+def print_results(minimum, maximum, average):
+    """Parameters: 
+       - minimum (float)
+       - maximum (float)
+       - average (float)
+       Print the statistics given. 
+       The required output is shown in the example output table.
+       Each value should be printed to 1 d.p.
+    """
+    print(f"Minimum mark: {minimum}")
+    print(f"Maximum mark: {maximum}")
+    print(f"Average mark: {average}")
+    
+
+
+def main():
+    """The main function (see module docstring)"""
+    filename = get_filename()
+    data = read_data(filename)
+    minimum_mark, maximum_mark, average_mark = statistics(data)
+    print_results(minimum_mark, maximum_mark, average_mark)
+
+main()
